@@ -1,14 +1,16 @@
 #pragma once
 
-#include "Application.h"
-
 #ifdef AL_PLATFORM_WINDOWS
 
 extern Almond::Application* Almond::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	printf("Almond Engine");
+	Almond::Log::Init();
+	AL_CORE_WARN("Initialized Log!");
+
+	int a = 5;
+	AL_CLIENT_INFO("Hello! Var = {0}", a);
 
 	auto app = Almond::CreateApplication();
 	app -> Run();
